@@ -3,7 +3,7 @@
 
 main() {	
 	# hints if you supply less or more than one argument
-	if [ $# -ne 1 ]
+	if [ $# -eq 0 ]
 		then
 			echo $#
 			print_usage
@@ -14,14 +14,24 @@ main() {
 	git add .
 	git add -u
 
+	# build commit message
+	MSG=""
+	for ARG in "$@"
+	do
+		MSG="$MSG $ARG"
+	done
+
 	# commit
-	git commit -m "$1"
+	git commit -m "$MSG"
+
+	# push
+	git push origin master
 }
 
 #usage information
 print_usage() {
 	echo "~~ gitaddremovecommit usage: ~~"
-	echo "- Please supply a commit message. If your message contains a <space>, please encase the whole message in double quotes."
+	echo "- Please supply a commit message."
 	echo "~~ ~~"
 }
 
