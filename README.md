@@ -4,10 +4,15 @@ _____
 ### Summary
 Frankly, I was tired of typing `git add .`, then `git commit -m`, and likely smashing my keyboard when I realize that my `rm`ed files are not `git rm`ed. I was also mildly irritated about having to type quotes around my commit messages.
 
+It should be noted up-front that this really only works if you're commiting directly to master. Edit as you will.
+
 Now, this:
 ```
 git add .
 git commit -m "some changes"
+git push origin master
+*rage*
+git pull origin master
 git push origin master
 *rage*
 git add -u
