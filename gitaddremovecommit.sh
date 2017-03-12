@@ -24,6 +24,9 @@ main() {
 	# commit
 	git commit -m "$MSG"
 
+	# pull before you push
+	git pull origin master
+
 	# push
 	git push origin master
 }
