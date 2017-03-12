@@ -9,18 +9,6 @@ main() {
 			exit 1 
 	fi
 
-	if [ $1 -eq "-branch" ]
-		then
-			if [ $# -ne 2 ]
-				then
-					print_branch_usage
-					exit 1
-				else
-					# change the branch config
-					echo "$2"
-			fi		
-	fi
-
 	# add all new, updated, and deleted files
 	git add .
 	git add -u
@@ -35,23 +23,20 @@ main() {
 	# commit
 	git commit -m "$MSG"
 
+	# get branch name
+	BRANCH=$(git branch | awk '/\*/ { print $2; }')
+
 	# pull before you push
-	git pull origin master
+	git pull origin "$BRANCH"
 
 	# push
-	git push origin master
+	git push origin "$BRANCH"
 }
 
 #usage information
 print_general_usage() {
 	echo "~~ gitaddremovecommit usage: ~~"
 	echo "- Please supply a commit message."
-	echo "~~ ~~"
-}
-
-print_branch_usage() {
-	echo "~~ gitaddremovecommit usage: ~~"
-	echo "- Please supply one branch name after '-branch'"
 	echo "~~ ~~"
 }
 
