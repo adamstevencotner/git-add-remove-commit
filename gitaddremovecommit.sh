@@ -26,4 +26,4 @@ print_usage() {
 }
 
 # go!
-main $1
+main "$@"
