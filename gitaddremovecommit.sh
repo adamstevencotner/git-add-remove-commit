@@ -1,5 +1,8 @@
 #!/bin/bash
-# gitaddremovecommit adds, removes, and commits all changes with a default message
+
+# gitaddremovecommit.sh
+# made by Adam Cotner, but I guess you can use it
+# just give me some credit or something
 
 main() {	
 	# hints if you supply zero, or less than 2 (with a -p flag)
