@@ -2,8 +2,8 @@
 # gitaddremovecommit adds, removes, and commits all changes with a default message
 
 main() {	
-	# hints if you supply less or more than one argument
-	if [ $# -eq 0 ]
+	# hints if you supply zero, or less than 2 (with a -p flag)
+	if [ $# -eq 0 ] || ([ "$1" == "-p" ] && [ $# -lt 2 ])
 		then
 			print_general_usage
 			exit 1 
@@ -12,6 +12,18 @@ main() {
 	# add all new, updated, and deleted files
 	git add .
 	git add -u
+
+	# check if you're supposed to pull/push
+	if [ "$1" == "-p" ]
+		then
+			commit_message "${@:2}"
+			pull_push
+		else
+			commit_message "$@"
+	fi
+}
+
+commit_message() {
 
 	# build commit message
 	MSG=""
@@ -22,6 +34,9 @@ main() {
 
 	# commit
 	git commit -m "$MSG"
+}
+
+pull_push() {
 
 	# get branch name
 	BRANCH=$(git branch | awk '/\*/ { print $2; }')
