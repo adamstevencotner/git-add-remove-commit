@@ -16,9 +16,11 @@ main() {
 	# check if you're supposed to pull/push
 	if [ "$1" == "-p" ]
 		then
+			# pass all but the first argument (-p flag)
 			commit_message "${@:2}"
 			pull_push
 		else
+			# pass all arguments
 			commit_message "$@"
 	fi
 }
