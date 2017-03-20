@@ -44,7 +44,7 @@ to explain:
 
 ### Usage
 ##### General
-The script takes either exactly one non-flag argument: the commit message. If you wish to activate continuous input with the `-c` flag, you may optionally put in zero non-flag arguments.
+The script takes exactly one non-flag argument: the commit message. If you wish to activate continuous input with the `-c` flag, you may optionally put in zero non-flag arguments.
 ##### Flags
 - `-p` will turn on pulling and pushing. The script with assume you want to pull/push on the current branch.
 - `-c` turns on continuous input. With it, you can just type a commit message whenever you'd like to add, remove, and commit (and pull/push with the `-p` flag). To exit, just press `<enter>` without a commit message.
