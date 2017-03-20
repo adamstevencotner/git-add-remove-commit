@@ -57,8 +57,8 @@ main() {
 
 command_sequence() {
 
-	# add all new, updated, and deleted files
-	git add .
+	# add all new, updated, untracked/deleted files
+	git add --all
 	git add -u
 
 	# commit
