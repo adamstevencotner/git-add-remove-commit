@@ -4,19 +4,11 @@ a shell script for easier adding, removing, and commiting files with one command
 _now with continuous input!_
 _____
 ### Summary
-Frankly, I was tired of typing `git add .`, then `git commit -m`, and likely smashing my keyboard when I realize that my `rm`ed files are not `git rm`ed.
 
-Now, this:
+this:
 ```
 git add .
-git commit -m "some changes"
-git push origin master
-*rage*
-git pull origin master
-git push origin master
-*rage*
-git add -u
-git commit -m "apparently i also deleted shit"
+git commit -m "this is a commit message"
 git push origin master
 ```
 becomes
